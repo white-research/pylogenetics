@@ -6,7 +6,7 @@ except ImportError:
 config = {
     'description': 'Pylogenetics',
     'author': 'Dominic White',
-    'url': 'http://github.com/DominicWhite/pylogenetics',
+    'url': 'https://github.com/dominicwhite/pylogenetics',
     'download_url': 'Where to download it.',
     'author_email': 'dewhite4@gmail.com',
     'version': '0.1',
