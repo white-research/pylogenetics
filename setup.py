@@ -11,7 +11,7 @@ config = {
     'author_email': 'dewhite4@gmail.com',
     'version': '0.1',
     'install_requires': ['nose','networkx'],
-    'packages': ['io'],
+    'packages': ['phylo'],
     'scripts': [],
     'name': 'projectname'
 }
