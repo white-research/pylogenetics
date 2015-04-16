@@ -10,7 +10,7 @@ config = {
     'download_url': 'Where to download it.',
     'author_email': 'dewhite4@gmail.com',
     'version': '0.1',
-    'install_requires': ['nose'],
+    'install_requires': ['nose','networkx'],
     'packages': ['io'],
     'scripts': [],
     'name': 'projectname'
