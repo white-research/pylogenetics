@@ -63,22 +63,22 @@ class CharMatrix:
         f=open(filename,'w')
         f.write('xread\n')
         f.write(str(self.total_chars)+' '+str(self.total_taxa)+'\n')
-        for taxon in self.chars.keys():
-            line = str(taxon).replace(' ','')
+        for taxon in sorted(self.chars.keys()):
+            line = str(taxon).replace(' ','_') + (' '*(40-len(str(taxon))))
             for char_state in self.chars[taxon]:
-                line=line+' '+str(char_state)
+                line=line + ' ' + str(char_state)
             f.write(line+'\n')
         f.write(';')
         f.close()
 
 
 
-m = CharMatrix('test')
-m.add_taxon('dunno')
-m.add_taxon('elephant')
-m.add_taxon('rhino')
-m.add_character({'dunno':1,'elephant':0,'rhino':4})
-m.add_character({'dunno':3,'elephant':5,'rhino':3})
-m.add_character({'dunno':0,'elephant':0,'rhino':1})
-print m.taxa_names
-print m.chars
+#m = CharMatrix('test')
+#m.add_taxon('dunno')
+#m.add_taxon('elephant')
+#m.add_taxon('rhino')
+#m.add_character({'dunno':1,'elephant':0,'rhino':4})
+#m.add_character({'dunno':3,'elephant':5,'rhino':3})
+#m.add_character({'dunno':0,'elephant':0,'rhino':1})
+#print m.taxa_names
+#print m.chars

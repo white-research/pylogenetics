@@ -5,21 +5,21 @@ Created on Tue Apr 16 11:10:10 2015
 @author: Dominic White
 """
 
-import networkx as nx
-#import matrix
+import tree
+import matrix
 
 
-def get_desc(tree,internal):
+def get_desc(t,internal):
     desc=[internal]
-    for d in tree.successors(internal):
-        desc=desc+get_desc(tree,d)
+    for d in t.successors(internal):
+        desc=desc+get_desc(t,d)
     return desc
 
 def mrp_matrix(source_trees):
     """Takes a list of nx objects.
     Turns these into a character matrix using representation with parsimony.
     Returns a Matrix object."""
-    mrp=CharMatrix('MRP matrix')
+    mrp=matrix.CharMatrix('MRP matrix')
     for t in source_trees:
         taxa_present = []
         for tip in t.nodes(): #Add any new taxa to the matrix
@@ -47,18 +47,7 @@ def mrp_matrix(source_trees):
                     else:
                         c_states[t.node[node]['name']]='?'
             print "Character:",c_states
-            mrp.add_character(c_states)
+            mrp.add_character(c_states, all_taxa=False)
     return mrp
 
-t = [
-     '(a,(b,(c,d)))',
-     '((a,b),(c,d))'
-     ]
-tt=[_newick_to_nx(s) for s in t]
-print tt
-for s in tt:
-    print s.edges()
-m=mrp_matrix(tt)
-print m.chars
-m.to_tnt('out.tnt')
 
