@@ -99,11 +99,23 @@ class Tree(nx.DiGraph):
             raise Exception("Tree has no root")    
     
     def timescale(self, ages, min_l=1, r=None):
+        """
+        Takes a dictionary of tip ages for each tip. Keys are the tip names.
+        Values for each tip are a list: [earliest appearance,last appearance].
+        
+        Optional arguments:
+        min_l: minimum branch length. Default 1. Should be an integer or float
+        greater than 0.
+        """
         if r == None:
             r=self.root()
             new_ages = {}
             for t in self.tip_keys():
-                new_ages[t]=ages[self.node[t]['name']]
+                try:
+                    new_ages[t]=ages[self.node[t]['name']]
+                except:
+                    error_name='No taxon named '+str(ages[self.node[t]['name']])+' in ages dictionary'
+                    raise Exception(error_name)
             ages=new_ages
         # pass 1
         descs = self.successors(r)

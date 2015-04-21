@@ -7,7 +7,7 @@ Created on Mon Apr 20 13:15:09 2015
 
 import requests, time, random
 
-def get_pdb_ages(taxa):
+def get_pdb_ages(taxa, time_pause=5):
     if type(taxa)!=list:
         raise Exception('The taxon names must be passed as a list')
     ages = {}
@@ -37,7 +37,7 @@ def get_pdb_ages(taxa):
     #    print r.json()
         print taxon, r.json()['records'][0]['fla'], r.json()['records'][0]['lla']
         ages[taxon]=[r.json()['records'][0]['fla'],r.json()['records'][0]['lla']]
-        wait = random.randint(0,1)
+        wait = random.randint(0,time_pause)
         print wait
         time.sleep(wait)
     return ages

@@ -1,7 +1,5 @@
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
+
 
 config = {
     'description': 'Pylogenetics',
@@ -11,7 +9,7 @@ config = {
     'author_email': 'dewhite4@gmail.com',
     'version': '0.1',
     'install_requires': ['nose','networkx','requests'],
-    'packages': ['phylo'],
+    'packages': find_packages(),
     'scripts': [],
     'name': 'projectname'
 }

@@ -7,7 +7,7 @@ Created on Tue Apr 14 17:44:32 2015
 
 import tree
 
-def _newick_to_nx(newick):
+def _newick_to_tree(newick):
     lengths=False
     if ':' in newick:
         lengths=True
@@ -86,7 +86,7 @@ def read_trees(filename, filetype="newick"):
         for t in lines:
             ntree = t.strip().replace(';','')
             if len(ntree)>0:
-                trees.append( _newick_to_nx(ntree) )
+                trees.append( _newick_to_tree(ntree) )
         newick.close()
     elif filetype=="tnt":
         tnt=open(filename)
@@ -94,7 +94,7 @@ def read_trees(filename, filetype="newick"):
         for t in lines:
             if t[0]=='(':
                 t = t.replace('*','').replace(';','').replace(' )',')').replace(')(','),(').replace(' ',',')
-                trees.append(_newick_to_nx(t.strip()))
+                trees.append(_newick_to_tree(t.strip()))
         tnt.close()
     return trees
 
