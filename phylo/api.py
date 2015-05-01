@@ -11,6 +11,7 @@ def get_pdb_ages(taxa, time_pause=5):
     if type(taxa)!=list:
         raise Exception('The taxon names must be passed as a list')
     ages = {}
+    f=open('ages'+str(604-len(taxa))+'.csv','w')
     for taxon in taxa:
         if type(taxon)!=str:
             raise Exception('Taxa must be strings')
@@ -37,9 +38,11 @@ def get_pdb_ages(taxa, time_pause=5):
     #    print r.json()
         print taxon, r.json()['records'][0]['fla'], r.json()['records'][0]['lla']
         ages[taxon]=[r.json()['records'][0]['fla'],r.json()['records'][0]['lla']]
+        f.write(taxon+','+str(r.json()['records'][0]['fla'])+','+str(r.json()['records'][0]['lla'])+'\n')
         wait = random.randint(0,time_pause)
         print wait
         time.sleep(wait)
+    f.close()
     return ages
 
 #taxon_list = ['Tyrannosaurus rex','Centrosaurus apertus','Stegosaurus armatus']
