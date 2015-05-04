@@ -1,6 +1,5 @@
 *.pyc
-*.tnt
-*.tre
-*.csv
-trees
-dino.py
+bin
+dist
+pylogenetics.egg-info
+tests

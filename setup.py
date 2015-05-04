@@ -12,7 +12,6 @@ config = {
     'install_requires': ['nose','networkx','requests'],
     'packages': find_packages(),
     'scripts': [],
-    'name': 'projectname',
     'classifiers': [
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
