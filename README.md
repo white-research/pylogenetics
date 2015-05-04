@@ -1,3 +1,3 @@
 # pylogenetics
 
-A python package contaning classes and functions for phylogenetic analyses.
+A python package containing classes and functions for phylogenetic analyses.
