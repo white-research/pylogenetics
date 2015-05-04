@@ -1,8 +1,6 @@
 *.pyc
 *.tnt
 *.tre
+*.csv
 trees
 dino.py
-dinomrp.tnt
-treesRang.tre
-ages.csv
