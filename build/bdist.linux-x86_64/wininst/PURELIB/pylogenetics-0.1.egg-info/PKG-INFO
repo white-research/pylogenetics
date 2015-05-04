@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: pylogenetics
+Version: 0.1
+Summary: Phylogenetic analysis tools
+Home-page: https://github.com/dominicwhite/pylogenetics
+Author: Dominic White
+Author-email: dewhite4@gmail.com
+License: UNKNOWN
+Download-URL: https://pypi.python.org/pypi/pylogenetics/
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Operating System :: OS Independent

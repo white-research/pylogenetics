@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+phylo/__init__.py
+phylo/api.py
+phylo/matrix.py
+phylo/read.py
+phylo/supertree.py
+phylo/tree.py
+pylogenetics.egg-info/PKG-INFO
+pylogenetics.egg-info/SOURCES.txt
+pylogenetics.egg-info/dependency_links.txt
+pylogenetics.egg-info/pbr.json
+pylogenetics.egg-info/requires.txt
+pylogenetics.egg-info/top_level.txt
+tests/__init__.py
+tests/read_tests.py
