@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 
 config = {
-    'description': 'Pylogenetics',
+    'name':'pylogenetics',
+    'description': 'Phylogenetic analysis tools',
     'author': 'Dominic White',
     'url': 'https://github.com/dominicwhite/pylogenetics',
     'download_url': 'Where to download it.',
@@ -11,7 +12,16 @@ config = {
     'install_requires': ['nose','networkx','requests'],
     'packages': find_packages(),
     'scripts': [],
-    'name': 'projectname'
+    'name': 'projectname',
+    'classifiers': [
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: MIT License",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
+        "Operating System :: OS Independent"
+        ]
 }
 
 setup(**config)

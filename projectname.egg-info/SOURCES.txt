@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+phylo/__init__.py
+phylo/api.py
+phylo/matrix.py
+phylo/read.py
+phylo/supertree.py
+phylo/tree.py
+projectname.egg-info/PKG-INFO
+projectname.egg-info/SOURCES.txt
+projectname.egg-info/dependency_links.txt
+projectname.egg-info/pbr.json
+projectname.egg-info/requires.txt
+projectname.egg-info/top_level.txt
+tests/__init__.py
+tests/read_tests.py
