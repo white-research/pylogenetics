@@ -8,9 +8,9 @@ config = {
     'url': 'https://github.com/dominicwhite/pylogenetics',
     'download_url': 'https://pypi.python.org/pypi/pylogenetics/',
     'author_email': 'dewhite4@gmail.com',
-    'version': '0.3',
+    'version': '0.3.3',
     'install_requires': ['nose','networkx','requests'],
-    'packages': find_packages(),
+    'packages': ['pylogenetics'],
     'scripts': [],
     'classifiers': [
         "Programming Language :: Python",

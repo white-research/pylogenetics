@@ -11,6 +11,9 @@ class Tree(nx.DiGraph):
     
     def drop_tip(self, tip_name):
         in_tree=False
+        time = False
+        if self.is_timescaled()==True:
+            time=True
         for tip in self.tip_keys():
             if self.node[tip]['name']==tip_name:
                 tip_num = tip
@@ -18,22 +21,27 @@ class Tree(nx.DiGraph):
         if in_tree==False:
             raise Exception('Tip not in tree')
         anc = self.predecessors(tip_num)[0]
-        anc_of_anc = self.predecessors(anc)[0]
-        descs_of_anc = self.successors(anc)
-        if len(descs_of_anc) >2:
-            self.remove_edge(anc, tip_num)
+        if anc == self.root():
+            self.remove_nodes_from((tip_num, anc))
         else:
-            for d in descs_of_anc:
-                if d != tip_num:
-                    other_desc = d
-            new_bl=None
-            if self.is_timescaled():
-                new_bl = self.edge[anc_of_anc][anc]['length']+self.edge[anc][other_desc]['length']
-            self.remove_edge(anc,tip_num)
-            self.remove_node(anc)
-            self.add_edge(anc_of_anc, other_desc)
-            if new_bl != None:
-                self.edge[anc_of_anc][other_desc]['length']=new_bl
+            anc_of_anc = self.predecessors(anc)[0]
+            descs_of_anc = self.successors(anc)
+            if len(descs_of_anc) >2:
+                self.remove_edge(anc, tip_num)
+            else:
+                for d in descs_of_anc:
+                    if d != tip_num:
+                        other_desc = d
+                new_bl=None
+                if time:
+                    new_bl = self.edge[anc_of_anc][anc]['length']+self.edge[anc][other_desc]['length']
+                    if new_bl == None:
+                        raise Exception
+                self.remove_edge(anc,tip_num)
+                self.remove_node(anc)
+                self.add_edge(anc_of_anc, other_desc)
+                if new_bl != None:
+                    self.edge[anc_of_anc][other_desc]['length']=new_bl
             
     
     def is_binary(self):
@@ -47,9 +55,13 @@ class Tree(nx.DiGraph):
     def is_timescaled(self):
         for b in self.edges():
             try:
-                if type(self.edge[b[0]][b[1]]['length'])!=float or type(self.edge[b[0]][b[1]]['length'])!=int:
+                bl = self.edge[b[0]][b[1]]['length']
+                if (type(bl) != float) and (type(bl) != int):
+                    print b, bl, type(bl)
+                    print (type(bl) != float) and (type(bl) != int)
                     raise Exception('Tree has a non integer/float branch length')
-            except:
+            except KeyError:
+                print b
                 return False
         return True
     
@@ -174,7 +186,7 @@ class Tree(nx.DiGraph):
                         raise Exception("An interior node has too few descendents")
     
     def __repr__(self):
-        return "Tree()"
+        return "pylogenetics.tree.Tree()"
     
     def __str__(self):
         return "Tree with "+str(len(self.tip_keys()))+" tips"
