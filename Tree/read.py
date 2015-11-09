@@ -48,6 +48,7 @@ def _newick_to_tree(newick):
     t.remove_node(0)
     return t
 
+
 def _get_branch_length(newick,count): #count is the index of the colon
     if newick[count] != ':':
         raise ValueError('Expecting a colon in newick tree before branch length')
@@ -61,6 +62,7 @@ def _get_branch_length(newick,count): #count is the index of the colon
         raise ValueError('Missing branch length in newick tree')
     return float(newick[count+1:count+y]), y
 
+
 def _get_taxon_name(newick, count):
     y=0
     while True: 
@@ -72,7 +74,6 @@ def _get_taxon_name(newick, count):
     if y==0:
         raise ValueError('Missing a taxon name in newick tree')
     return newick[count:count+y], y
-
 
 
 def read_trees(filename, filetype="newick"):
@@ -98,14 +99,3 @@ def read_trees(filename, filetype="newick"):
         tnt.close()
     return trees
 
-#read_trees('/home/dominic/Desktop/scaled.tre')
-
-#_newick_to_nx('((a,b),(c,d))')
-#_newick_to_nx('((a:5,b:2):4,(c:3,d:2):7)')
-#_newick_to_nx('((a:5,(ef:1,b:2):3):4,(c:3,d:2):7)')
-#final = _newick_to_nx('((a:5,(ef:1,b:2):3):4,(c:3,d:2):7):3')
-#final = _newick_to_nx('((a:5,(ef:1.4,b:2):3):4,(c:13.6,d:2):7)')
-#for edge in final.edges():
-#    print edge, final.edge[edge[0]][edge[1]]['length']
-#    if final.degree(edge[1])==1:
-#        print '   ',final.node[edge[1]]['name']
