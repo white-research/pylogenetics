@@ -10,9 +10,7 @@ config = {
     'author_email': 'dewhite4@gmail.com',
     'version': '0.3.5',
     'install_requires': ['nose','networkx','requests'],
-    'packages': ['api',
-                 'Tree',
-                 'Matrix'],
+    'packages': ['pylogenetics'],
     'scripts': [],
     'classifiers': [
         "Programming Language :: Python",
