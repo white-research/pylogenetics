@@ -158,7 +158,7 @@ class Tree(nx.DiGraph):
                     ages[r] = d_age_est
                 else:
                     if ages[r] < d_age_est:
-                        ages[r] = d_age_est    
+                        ages[r] = d_age_est
                 desc_ages.append(ages[d])
             oldest_desc=max(desc_ages)
             if ages[r] < oldest_desc+min_l:
