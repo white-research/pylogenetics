@@ -1,9 +1,0 @@
-*.pyc
-bin
-build
-dist
-pylogenetics.egg-info
-tests
-
-dinodata.db
-db_analysis*
