@@ -12,7 +12,7 @@ config = {
     'url': 'https://github.com/dominicwhite/pylogenetics',
     'author_email': 'dewhite4@gmail.com',
     'version': v,
-    'install_requires': ['nose','networkx','numpy','requests'],
+    'install_requires': ['nose','networkx','numpy','requests','pandas'],
     'long_description': long_description,
     'long_description_content_type': "text/markdown",
     'packages': ['pylogenetics'],
